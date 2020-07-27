@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const htmlRoutes = require('./routes/html-routes.js')
+const apiRoutes = require('./routes/api-routes.js')
 // -------------------------------------^
 
 
@@ -16,7 +17,7 @@ app.use(express.static('public'));
 
 
 // MONGOOSE SETUP --------------------------------------------------------------------
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workoutTracker', { 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { 
     useNewUrlParser: true, useUnifiedTopology:true 
 });
 //
@@ -30,7 +31,7 @@ connection.on('connected', () => {
 
 // ROUTES -------------------
 app.use(htmlRoutes);
-// app.use(apiRoutes);
+app.use(apiRoutes);
 // -------------------------^
 
 
