@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const app = express();
 const htmlRoutes = require('./routes/html-routes.js');
 const apiRoutes = require('./routes/api-routes.js');
-let db = require('./models');
 // -------------------------------------^
 
 
