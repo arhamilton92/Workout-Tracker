@@ -1,7 +1,11 @@
 
+// DEPENDENCIES -----------------------
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// -----------------------------------^
 
+
+// WORKOUT SCHEMA -------------------
 const WorkoutSchema = new Schema({
     day: {
         type: Date,
@@ -31,7 +35,11 @@ const WorkoutSchema = new Schema({
         }
     }]
 });
+// ---------------------------------^
 
+
+// WORKOUT MODEL ------------------------------------------
 const Workout = mongoose.model("Workout", WorkoutSchema);
+// -------------------------------------------------------^
 
 module.exports = Workout;

@@ -16,6 +16,15 @@ router.get("/api/workouts", (req, res) => {
 // ----------------------------------------------^
 
 
+//gets workouts in range. wasn't sure if it needed a specific number?
+router.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({}).limit(5).then((workouts) => {
+      res.json(workouts)
+    })
+})
+// ----------------------------------------------------^
+
+
 // post new workout ---------------------------------
 router.post("/api/workouts", (req, res) => {
   db.Workout.create(req.body).then(newWorkout => {
