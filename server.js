@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const htmlRoutes = require('./routes/html-routes.js')
 // -------------------------------------^
 
 
@@ -22,12 +23,15 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workoutTracker'
 const connection = mongoose.connection;
 //
 connection.on('connected', () => {
-    console.log('Mongoose successfully connected.');
-});
-connection.on('connected', (err) => {
-    console.log('Mongoose connection error: ', err);
+    console.log('Mongoose connected.');
 });
 // -----------------------------------------------------------------------------------^
+
+
+// ROUTES -------------------
+app.use(htmlRoutes);
+// app.use(apiRoutes);
+// -------------------------^
 
 
 // LISTENER -------------------------------------------------
